@@ -16,3 +16,10 @@ aws s3api put-bucket-versioning --bucket cloudanddevopsbyraham0073456.k8s.local 
 export KOPS_STATE_STORE=s3://cloudanddevopsbyraham0073456.k8s.local
 kops create cluster --name rahams.k8s.local --zones us-east-1a --master-count=1 --master-size t2.medium --node-count=2 --node-size t2.medium
 kops update cluster --name rahams.k8s.local --yes --admin
+
+
+
+ * list clusters with: kops get cluster
+ * edit this cluster with: kops edit cluster deployment.k8s.local
+ * edit your node instance group: kops edit ig --name=deployment.k8s.local nodes-us-east-1a
+ * edit your control-plane instance group: kops edit ig --name=deployment.k8s.local control-plane-us-east-1a
