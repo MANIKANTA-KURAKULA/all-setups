@@ -17,7 +17,9 @@ sudo mv kops /usr/local/bin/kops
 aws s3 mb s3://argo.k8s.storage
 aws s3api put-bucket-versioning --bucket argo.k8s.storage --versioning-configuration Status=Enabled
 export KOPS_STATE_STORE=s3://argo.k8s.storage 
+
 kops create cluster --name argocd.k8s.local --zones us-east-1a,us-east-1b,us-east-1c --master-count=1 --master-size t2.medium --master-count 1 --master-volume-size 28 --node-count=2 --node-size t2.micro --node-volume-size 27
+
 kops update cluster --name  argo.k8s.storage  --yes --admin
 
 
